@@ -4,7 +4,6 @@ import command_providers.ActOn;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,7 +37,6 @@ public class CalculateApr {
 
     public void navigateToRatesPage() {
         //Mouse Hover to the Rates Link
-        Actions actions = new Actions(driver);
         ActOn.element(driver, RatesLink).mouseHover();
 
         //Click on Real APR link

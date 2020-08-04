@@ -34,7 +34,6 @@ public class CalculateMonthlyPayment {
     private final By CalculateButton = By.name("cal");
     private final By TotalMonthlyPayment = By.xpath("//*[@id='calc']//h3[contains(text(),'$1,611.85')]");
 
-
     @BeforeTest
     public void openBrowser() {
         String url = "https://www.mortgagecalculator.org/";
