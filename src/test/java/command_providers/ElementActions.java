@@ -20,7 +20,7 @@ public class ElementActions {
         WebElement element = null;
         try {
             element = driver.findElement(locator);
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             System.out.println("Element Not found for the locator: " + locator + " and exception is: " + e);
         }
         return element;

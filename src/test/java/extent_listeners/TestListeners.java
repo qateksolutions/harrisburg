@@ -1,8 +1,7 @@
-package utilities;
+package extent_listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
@@ -15,7 +14,6 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -36,20 +34,20 @@ public class TestListeners implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-        String methodName = result.getMethod().getMethodName();
+        //String methodName = result.getMethod().getMethodName();
         String exceptionMessage = Arrays.toString(result.getThrowable().getStackTrace());
         extentTest.get().fail("<details><summary><b><font color=red>" +
                 "Exception Occurred, click to see details:" + "</font></b></summary>" +
                 exceptionMessage.replaceAll(",","<br>") + "</details> \n");
 
-        WebDriver driver;
+        /*WebDriver driver;
         String path = takeScreenshot(driver, result.getMethod().getMethodName());
         try {
             extentTest.get().fail("<b><font color=red>" + "Screenshot of failure" + "</font></b>",
                     MediaEntityBuilder.createScreenCaptureFromPath(path).build());
         } catch (IOException e) {
             extentTest.get().fail("Test Failed, unable to attach screenshot");
-        }
+        }*/
 
         String logText = "<b>Test Method" + result.getMethod().getMethodName() + " Failed<b>";
         Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
