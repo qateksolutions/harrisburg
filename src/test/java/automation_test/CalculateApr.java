@@ -1,4 +1,4 @@
-package automation_test.mortgage_calculator;
+package automation_test;
 
 import command_providers.ActOn;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import page_objects.Home;
-
-import java.util.concurrent.TimeUnit;
 
 public class CalculateApr {
     WebDriver driver;
@@ -22,7 +20,6 @@ public class CalculateApr {
 
     @Test
     public void calculateRealApr() {
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         new Home(driver)
                 .mouseHoverToRates()
                 .navigateToRealApr()

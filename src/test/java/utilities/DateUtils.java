@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 
 public class DateUtils {
     //Print month and year
-    public static String returnNextMonth() {
+    public static String returnNextMonthWithYear() {
         //Create Date object
         Date dNow = new Date( );
         //Create calendar object for Gregorian Calendar

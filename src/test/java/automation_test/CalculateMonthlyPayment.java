@@ -1,4 +1,4 @@
-package automation_test.mortgage_calculator;
+package automation_test;
 
 import command_providers.ActOn;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -7,8 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import page_objects.Home;
 import utilities.DateUtils;
-
-import java.util.concurrent.TimeUnit;
 
 public class CalculateMonthlyPayment {
     WebDriver driver;
@@ -23,9 +21,7 @@ public class CalculateMonthlyPayment {
 
     @Test
     public void calculateMonthlyPayment() {
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-        String date = DateUtils.returnNextMonth();
+        String date = DateUtils.returnNextMonthWithYear();
         String[] dates = date.split("-");
         String month = dates[0];
         String year = dates[1];

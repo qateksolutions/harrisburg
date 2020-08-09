@@ -1,5 +1,7 @@
 package command_providers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +9,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 public class ElementActions {
     private By locator;
     private WebDriver driver;
+
+    private static final Logger LOGGER = LogManager.getLogger(ElementActions.class);
 
     public ElementActions(WebDriver driver, By locator) {
         this.driver = driver;
@@ -19,9 +25,10 @@ public class ElementActions {
     public WebElement getElement() {
         WebElement element = null;
         try {
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             element = driver.findElement(locator);
-        } catch (Exception e) {
-            System.out.println("Element Not found for the locator: " + locator + " and exception is: " + e);
+        } catch (NoSuchElementException e) {
+            LOGGER.error("Element Not found for the locator: " + locator + " and exception is: " + e);
         }
         return element;
     }
