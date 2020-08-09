@@ -5,7 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-import page_objects.MenuNavigation;
+import page_objects.Home;
 import utilities.DateUtils;
 
 import java.util.concurrent.TimeUnit;
@@ -30,8 +30,7 @@ public class CalculateMonthlyPayment {
         String month = dates[0];
         String year = dates[1];
 
-        new MenuNavigation(driver)
-                .navigateToHome()
+        new Home(driver)
                 .validateTitle()
                 .typeHomePrice("300000")
                 .typeDownPayment("60000")

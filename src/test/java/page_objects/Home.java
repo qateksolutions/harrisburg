@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class Home extends MenuNavigation {
+public class Home extends NavigationBar {
     private final By HomeValueInputField = By.id("homeval");
     private final By DownPaymentInputField = By.id("downpayment");
     private final By DownPaymentInDollarRadioButton = By.xpath("//*[@id='calc']//input[@name='param[downpayment_type]'][@value='money']");

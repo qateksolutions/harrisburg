@@ -4,13 +4,13 @@ import command_providers.ActOn;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MenuNavigation {
+public class NavigationBar {
+    public WebDriver driver;
     private final By MortgageCalculatorLogo = By.xpath("//a/img[@alt='Logo']");
     private final By RatesLink = By.linkText("Rates");
     private final By RealAprLink = By.linkText("Real APR");
-    public WebDriver driver;
 
-    public MenuNavigation(WebDriver driver) {
+    public NavigationBar(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -21,7 +21,7 @@ public class MenuNavigation {
     }
 
     //Mouse Hover to the Rates Link
-    public MenuNavigation mouseHoverToRates() {
+    public NavigationBar mouseHoverToRates() {
         ActOn.element(driver, RatesLink).mouseHover();
         return this;
     }

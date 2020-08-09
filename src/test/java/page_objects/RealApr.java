@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class RealApr extends MenuNavigation {
+public class RealApr extends NavigationBar {
     private final By RealAprHeader = By.xpath("//*[@id='CalcForm']/h1[text()='What is the Real APR?']");
     private final By HomeValueInputField = By.name("HomeValue");
     private final By DownPaymentInputField = By.name("DownPayment");
