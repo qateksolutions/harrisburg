@@ -10,26 +10,26 @@ import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class SimplePostTest {
-    private static final Logger LOGGER = LogManager.getLogger(SimplePostTest.class);
+public class SimplePutTest {
+    private static final Logger LOGGER = LogManager.getLogger(SimplePutTest.class);
 
     @Test
-    public void createNewUser() {
+    public void updateExistingUser() {
         RestAssured.baseURI ="https://reqres.in/api/users";
         RequestSpecification httpRequest = RestAssured.given();
 
         JSONObject reqBody = new JSONObject();
-        reqBody.put("name", "Masud Alam");
-        reqBody.put("job", "Programmer");
+        reqBody.put("name", "Md. Masud Alam");
+        reqBody.put("job", "Sr. Programmer");
 
         httpRequest.header("Content-Type", "application/json");
         httpRequest.body(reqBody.toJSONString());
         LOGGER.debug(reqBody);
-        Response response = httpRequest.request(Method.POST);
+        Response response = httpRequest.request(Method.PUT, "403");
 
         LOGGER.debug(response.asString());
 
         int statusCode = response.getStatusCode();
-        Assert.assertEquals(statusCode, 201);
+        Assert.assertEquals(statusCode, 200);
     }
 }

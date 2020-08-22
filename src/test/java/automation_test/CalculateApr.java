@@ -1,13 +1,17 @@
 package automation_test;
 
+import api_test.SimpleDeleteTest;
 import command_providers.ActOn;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import page_objects.Home;
 
 public class CalculateApr {
+    private static final Logger LOGGER = LogManager.getLogger(CalculateApr.class);
     WebDriver driver;
 
     @BeforeMethod
@@ -15,6 +19,7 @@ public class CalculateApr {
         String url = "https://www.mortgagecalculator.org/";
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        LOGGER.info("---------Calculate Real Apr-------");
         ActOn.browser(driver).openBrowser(url);
     }
 
@@ -35,5 +40,6 @@ public class CalculateApr {
     @AfterMethod
     public void closeBrowser() {
         ActOn.browser(driver).closeBrowser();
+        LOGGER.info("---------End of Calculate Real Apr-------");
     }
 }

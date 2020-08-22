@@ -15,7 +15,7 @@ public class SimpleDeleteTest {
     @Test
     public void DeleteEmployeeRecord() {
         // Specify the base URL or endpoint of the Rest API
-        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/delete";
+        RestAssured.baseURI = "https://reqres.in/api/users";
 
         // Get the RequestSpecification of the request that you want to sent
         // to the server. The server is specified by the BaseURI that we have
@@ -24,11 +24,7 @@ public class SimpleDeleteTest {
 
         // Make a request to the server by specifying the method Type. (Delete employee id "24")
         // This will return the Response from the server. Store the response in a variable.
-        Response response = httpRequest.request(Method.DELETE, "/24");
-
-        // Now let us print the body of the message to see what response
-        // we have received from the server
-        LOGGER.debug(response.getBody().asString());
+        Response response = httpRequest.request(Method.DELETE, "/403");
 
         // Get the status code from the Response. In case of
         // a successful interaction with the web service, we
@@ -37,6 +33,6 @@ public class SimpleDeleteTest {
         LOGGER.debug("Actual Status Code: " + statusCode);
 
         // Assert that correct status code is returned.
-        Assert.assertEquals(statusCode, 200);
+        Assert.assertEquals(statusCode, 204);
     }
 }
