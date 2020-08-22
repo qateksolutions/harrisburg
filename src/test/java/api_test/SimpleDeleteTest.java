@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 public class SimpleDeleteTest {
     private static final Logger LOGGER = LogManager.getLogger(SimpleDeleteTest.class);
-
+//this is test
     @Test
     public void DeleteEmployeeRecord() {
         // Specify the base URL or endpoint of the Rest API
