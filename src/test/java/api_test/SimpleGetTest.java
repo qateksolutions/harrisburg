@@ -15,7 +15,8 @@ public class SimpleGetTest {
     @Test
     public void GetAllEmployeeDetails() {
         // Specify the base URL or endpoint of the Rest API
-        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employees";
+        RestAssured.baseURI = "https://reqres.in/api/users?page=2";
+
 
         // Get the RequestSpecification of the request that you want to sent
         // to the server. The server is specified by the BaseURI that we have
@@ -50,7 +51,7 @@ public class SimpleGetTest {
     @Test
     public void GetSingleEmployeeDetails() {
         // Specify the base URL or endpoint of the Rest API
-        RestAssured.baseURI = "http://dummy.restapiexample.com/api/v1/employee";
+        RestAssured.baseURI = "https://reqres.in/api/users";
 
         // Get the RequestSpecification of the request that you want to sent
         // to the server. The server is specified by the BaseURI that we have
@@ -78,7 +79,7 @@ public class SimpleGetTest {
         JsonPath jsonPath = response.jsonPath();
 
         // Validate that employee name is "Ashton Cox"
-        String record  = jsonPath.getString("data.employee_name");
-        Assert.assertTrue(record.contains("Ashton Cox"), "Employee Record does not have the name");
+        String record  = jsonPath.getString("data.first_name");
+        Assert.assertTrue(record.contains("Emma"), "Employee Record does not have the name");
     }
 }

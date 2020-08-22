@@ -2,6 +2,8 @@ package automation_test;
 
 import command_providers.ActOn;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -9,6 +11,7 @@ import page_objects.Home;
 import utilities.DateUtils;
 
 public class CalculateMonthlyPayment {
+    private static final Logger LOGGER = LogManager.getLogger(CalculateMonthlyPayment.class);
     WebDriver driver;
 
     @BeforeMethod
@@ -16,6 +19,7 @@ public class CalculateMonthlyPayment {
         String url = "https://www.mortgagecalculator.org/";
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        LOGGER.info("---------Calculate monthly Payment-------");
         ActOn.browser(driver).openBrowser(url);
     }
 
@@ -50,5 +54,6 @@ public class CalculateMonthlyPayment {
     @AfterMethod
     public void closeBrowser() {
         ActOn.browser(driver).closeBrowser();
+        LOGGER.info("---------End of Calculate monthly Payment-------");
     }
 }

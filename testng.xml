@@ -10,4 +10,13 @@
             <class name="automation_test.CalculateApr"/>
         </classes>
     </test>
+    <test name="API_TEST">
+        <classes>
+            <class name="api_test.SimpleGetTest"/>
+            <class name="api_test.SimplePostTest"/>
+            <class name="api_test.SimplePutTest"/>
+            <class name="api_test.SimplePatchTest"/>
+            <class name="api_test.SimpleDeleteTest"/>
+        </classes>
+    </test>
 </suite>
